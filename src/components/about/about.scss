@@ -1,0 +1,74 @@
+@import "../../app.scss";
+
+.about {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px; /* Add padding to handle content on smaller screens */
+
+    .description-card {
+        display: flex;
+        max-width: 80%;
+        max-height: 80%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        box-shadow: 6px 10px 10px 10px rgba(0, 0, 0, 0.1);
+
+        .written {
+            flex: 1;
+            padding-right: 20px;
+
+            h1 {
+                font-size: 40px;
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            h3 {
+                text-indent: 30px;
+                margin: 90px auto;
+                margin-left: 60px;
+                width: 90%;
+                word-break: break-word; /* Prevent text overflow */
+            }
+        }
+
+        img {
+            flex: 1;
+            max-height: 600px;
+            width: auto;
+        }
+    }
+
+    /* Use the mobile mixin for mobile styles */
+    @include mobile {
+        .description-card {
+            flex-direction: column;  /* Stack content vertically on smaller screens */
+            max-width: 100%;  /* Use full width */
+            max-height: auto; /* Allow height to adjust automatically */
+            padding: 10px;
+
+            .written {
+                padding-right: 0;
+                text-align: center;
+
+                h1 {
+                    font-size: 32px;  /* Adjust font size for smaller screens */
+                }
+
+                h3 {
+                    margin: 20px auto;
+                    margin-left: 0;
+                    width: 100%;  /* Make the text take the full width */
+                }
+            }
+
+            img {
+                max-width: 100%;  /* Allow the image to scale with the container */
+                margin-bottom: 30px;
+            }
+        }
+    }
+}
